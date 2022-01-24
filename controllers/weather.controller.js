@@ -1,4 +1,4 @@
-const fastWeather = require("../services/fastWeather");
+const fastWeather = require("../services/accuWeather");
 
 const get5DayForecast = async (req, res) => {
   const { locationKey } = req.query;
@@ -23,14 +23,13 @@ const autoComplete = async (req, res) => {
     const response = await fastWeather.autoComplete(q);
     return res.status(200).json(response.data);
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
     return res.sendStatus(500);
   }
 };
 
 const geoPositionSearch = async (req, res) => {
-  const { q } = req.query;
-  const [lat, lng] = q.split(",");
+  const { lat, lng } = req.query;
 
   if (!lat || !(lat >= -90 && lat <= 90) || !(lng >= -180 && lat <= 180))
     return res.sendStatus(400);
