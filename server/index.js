@@ -15,7 +15,7 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   return res.sendStatus(200);
 });
-app.use("/weather", require("./routes/weather.route.js"));
+app.use("/api/weather", require("./routes/weather.route.js"));
 
 // START SERVER
 const PORT = process.env.PORT || 3001;

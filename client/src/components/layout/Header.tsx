@@ -9,7 +9,7 @@ const Header = () => {
           <Cloud strokeWidth={2} size={32} />
         </div>
       </div>
-      <div className="w-2/3 flex justify-center">
+      <div className="w-2/3 flex justify-center space-x-2 flex-shrink-0">
         <Searchbar />
       </div>
       <div className="w-1/6"></div>
