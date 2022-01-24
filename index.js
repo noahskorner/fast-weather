@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const app = express();
+require("dotenv").config();
 
 // APP SETTINGS
 app.use(
@@ -14,6 +15,7 @@ app.use(express.json());
 app.get("/", async (req, res) => {
   return res.sendStatus(200);
 });
+app.use("/weather", require("./routes/weather.route.js"));
 
 // START SERVER
 const PORT = process.env.PORT || 3001;
