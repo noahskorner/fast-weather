@@ -1,4 +1,4 @@
-const fastWeather = require("../services/accuWeather");
+const accuWeather = require("../services/accuWeather");
 
 const get5DayForecast = async (req, res) => {
   const { locationKey } = req.query;
@@ -6,7 +6,7 @@ const get5DayForecast = async (req, res) => {
   if (!locationKey) return res.sendStatus(400);
 
   try {
-    const response = await fastWeather.get5DayForecast(locationKey);
+    const response = await accuWeather.get5DayForecast(locationKey);
     return res.status(200).json(response.data);
   } catch (error) {
     console.log(error.message);
@@ -20,10 +20,24 @@ const autoComplete = async (req, res) => {
   if (!q) return res.sendStatus(400);
 
   try {
-    const response = await fastWeather.autoComplete(q);
+    const response = await accuWeather.autoComplete(q);
     return res.status(200).json(response.data);
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
+    return res.sendStatus(500);
+  }
+};
+
+const textSearch = async (req, res) => {
+  const { q } = req.query;
+
+  if (!q) return res.sendStatus(400);
+
+  try {
+    const response = await accuWeather.textSearch(q);
+    return res.status(200).json(response.data);
+  } catch (error) {
+    console.log(error.message);
     return res.sendStatus(500);
   }
 };
@@ -35,7 +49,7 @@ const geoPositionSearch = async (req, res) => {
     return res.sendStatus(400);
 
   try {
-    const response = await fastWeather.geoPositionSearch(lat, lng);
+    const response = await accuWeather.geoPositionSearch(lat, lng);
     return res.status(200).json(response.data);
   } catch (error) {
     console.log(error.message);
@@ -43,4 +57,4 @@ const geoPositionSearch = async (req, res) => {
   }
 };
 
-module.exports = { get5DayForecast, autoComplete, geoPositionSearch };
+module.exports = { get5DayForecast, autoComplete, textSearch, geoPositionSearch };
