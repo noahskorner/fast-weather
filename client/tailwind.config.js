@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     minHeight: {
       10: "2.5rem",
+      64: "16rem",
     },
   },
   plugins: [],
