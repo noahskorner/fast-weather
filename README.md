@@ -12,50 +12,50 @@ https://documenter.getpostman.com/view/12120504/UVe9Spt3
 ![Screenshot 2](/client/screenshots/screenshot-2.png?raw=true "Searching functionality")
 ![Screenshot 3](/client/screenshots/screenshot-3.png?raw=true "Fully responsive")
 
-Installation and Setup Instructions
+## Installation and Setup Instructions
 Clone down this repository. You will need node and npm installed globally on your machine.
 
 Client Installation:
 
-cd client
+`cd client`
 
 Install Dependencies:
 
-npm install
+`npm install`
 
 To Start Server:
 
-npm start
+`npm start`
 
 To Visit App:
 
-localhost:3000
+`localhost:3000`
 
 Server Installation:
 
-cd ..
+`cd ..`
 
-cd server
+`cd server`
 
 Create the .env file:
 
-touch.env
+`touch.env`
 
 Add the following to your environment variables:
 
-NODE_ENV=development
-ACCUWEATHER_API_KEY={YOUR_API_KEY}
+`NODE_ENV=development`
+`ACCUWEATHER_API_KEY={YOUR_API_KEY}`
 
 Install Dependencies:
 
-npm install
+`npm install`
 
 To Start Server:
 
-npm start
+`npm start`
 
 To Visit App:
 
-localhost:3001
+`localhost:3001`
 
 
