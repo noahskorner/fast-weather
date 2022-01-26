@@ -14,7 +14,7 @@ function App() {
       style={{ width: `${width}px`, height: `${height}px` }}
     >
       <ForecastProvider>
-        <div>
+        <div className="h-full flex flex-col items-start">
           <Header />
           <Forecast />
         </div>

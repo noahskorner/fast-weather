@@ -2,7 +2,7 @@ import { Search, Location } from "akar-icons";
 import { useState, useEffect, useContext } from "react";
 import { ForecastContext } from "../../contexts/forecast";
 import { CityType } from "../../interfaces/global";
-import { textSearch } from "../../services/fastWeatherApi";
+import { textSearch, geoPositionSearch } from "../../services/fastWeatherApi";
 import Spinner from "./Spinner";
 
 const Searchbar = () => {
@@ -30,6 +30,30 @@ const Searchbar = () => {
     setLoading(false);
   };
 
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      setLoading(true);
+      navigator.geolocation.getCurrentPosition(
+        async (position: GeolocationPosition) => {
+          const { latitude, longitude } = position.coords;
+
+          try {
+            const response = await geoPositionSearch(latitude, longitude);
+            forecastContext?.setLocation(response.data);
+            setIsSearching(false);
+          } catch (error) {
+            console.log(error);
+          }
+
+          setLoading(false);
+        },
+        () => {
+          setLoading(false);
+        }
+      );
+    }
+  };
+
   useEffect(() => {
     if (!query.length) return;
     setLoading(true);
@@ -40,6 +64,11 @@ const Searchbar = () => {
     return () => clearTimeout(delayDebounceFn);
     // eslint-disable-next-line
   }, [query]);
+
+  useEffect(() => {
+    getCurrentLocation();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div
@@ -90,7 +119,10 @@ const Searchbar = () => {
         </div>
         {isSearching && (
           <div className="absolute top-100 left-0 right-0 min-h-10 bg-gray-700 border-b border-l border-r border-blue-600 shadow-3xl rounded-b p-2 flex flex-col items-center overflow-y-auto max-h-64">
-            <button className="font-light text-left hover:underline rounded p-2 text-blue-300 text-sm text-center flex items-center justify-center">
+            <button
+              onClick={() => getCurrentLocation()}
+              className="font-light text-left hover:underline rounded p-2 text-blue-300 text-sm text-center flex items-center justify-center"
+            >
               <Location strokeWidth={2} size={16} className="mr-2" />
               Use My Current Location
             </button>

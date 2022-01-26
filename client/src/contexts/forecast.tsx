@@ -5,7 +5,6 @@ import {
   DailyForecastType,
   HeadlineType,
 } from "../interfaces/global";
-import { convertToObject } from "typescript";
 
 interface ForecastContextType {
   location: CityType | null;

@@ -11,14 +11,17 @@
 /* Inputs */
 input::-webkit-input-placeholder {
   font-weight: 300;
+  font-size: 0.875rem;
   text-align: center;
 }
 input::-moz-placeholder {
   font-weight: 300;
+  font-size: 0.875rem;
   text-align: center;
 }
 input::-ms-input-placeholder {
   font-weight: 300;
+  font-size: 0.875rem;
   text-align: center;
 }
 input:focus {

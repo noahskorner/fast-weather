@@ -38,7 +38,7 @@ export interface HeadlineType {
 }
 
 export interface DailyForecastType {
-  Date: Date;
+  Date: string;
   EpochDate: number;
   Temperature: {
     Minimum: {
