@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import useWindowSize from "./hooks/useWindowSize";
 import Header from "./components/layout/Header";
 import Forecast from "./components/layout/Forecast";

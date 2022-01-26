@@ -1,7 +1,7 @@
 import axios from "axios";
 import { DailyForecastType, HeadlineType } from "../interfaces/global";
 
-const baseURL = "http://localhost:3001/api/";
+const baseURL = "https://fast-weather-server.herokuapp.com/api/";
 
 const apiClient = axios.create({
   baseURL: baseURL,

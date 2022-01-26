@@ -34,11 +34,7 @@ const Forecast = () => {
             })}
           </div>
         </div>
-      ) : (
-        <h2 className="text-3xl h-64 w-full">
-          Enter a city to see it's forecast!
-        </h2>
-      )}
+      ) : null}
     </div>
   );
 };
