@@ -39,7 +39,7 @@ Server Installation:
 
 Create the .env file:
 
-`touch.env`
+`touch .env`
 
 Add the following to your environment variables:
 
